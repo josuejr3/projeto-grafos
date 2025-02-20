@@ -21,6 +21,7 @@ def detected_encoding(arquivo):
     return resultado["encoding"]
 
 
+
 #Obtém uma lista com código - nome
 def local_names(list_names: list) -> list:
     """
@@ -58,10 +59,12 @@ def get_code(value: str, file: str) -> None | str:
     :param file: arquivo JSON com dicionário
     :return: None se não existir um código ou um inteiro representando o código
     """
-    value = value.upper() if len(value) == 2 else value.title()
+
+    value = value.upper()
 
     try:
-        with open(file, 'r', encoding="utf-8") as f:
+        with open(file, 'r', encoding="utf8") as f:
+
             dictionary_codes = json.load(f)
             if value in dictionary_codes.keys():
                 return int(dictionary_codes[value])
@@ -135,7 +138,7 @@ def convert_cnv_to_json(file: str, file_name_save: str) -> True:
 
                 # obtem as informações do local, codigo - nome
                 info_local = local_names(lines[l])
-                save_local[info_local[1]] = info_local[0]
+                save_local[info_local[1].upper()] = info_local[0]
 
             # Remove informações de cabeçalho
             lines.pop(0)
