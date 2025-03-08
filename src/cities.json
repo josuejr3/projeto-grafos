@@ -1,6 +1,4 @@
 {
-    "": "6",
-    "PELA UT-SINAN": "2019",
     "ÁGUA BRANCA": "250010",
     "AGUIAR": "250020",
     "ALAGOA GRANDE": "250030",
@@ -224,5 +222,5 @@
     "VIEIRÓPOLIS": "251720",
     "VISTA SERRANA": "250550",
     "ZABELÊ": "251740",
-    "MUNICIPIO IGNORADO": "250000,259999"
+    "224": "250000"
 }
