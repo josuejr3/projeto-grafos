@@ -13,7 +13,6 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import json
 
-
 if __name__ == '__main__':
 
     # Pré processamento - convertendo arquivos cnv para JSON
@@ -157,7 +156,6 @@ if __name__ == '__main__':
     show_ranking(rank_cities, rank_years)
 
     # Centralidade de proximidade para identificar anos que não ocorreram a doença em regiões
-
     for name, (graph_region, color) in region_map.items():
         closeness_centrality_region = nx.closeness_centrality(graph_region)
         labels_closeness = []
@@ -172,7 +170,7 @@ if __name__ == '__main__':
 
         else:
             print(f'A região {name.title()} não apresentou casos no(s) ano(s): ', absance_of_cases_in_year(closeness_centrality_region))
-            bar_chart(value_closeness, labels_closeness, color, 'Anos', 'Centralidade de Proximidade',
+            bar_chart(value_closeness, labels_closeness, color, 'Ano de Notificação', 'Centralidade de Proximidade',
                       f"Gráfico de Barras CP - {name}")
 
     # Tupla com infos dos subgrafos

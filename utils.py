@@ -42,6 +42,16 @@ CONSTANTE_MULT = 50000
 MUNICIPIO_ID = 'ID_MUNICIP'
 
 def bar_chart(values: list, labels_bar: list, color: str, x: str, y: str, name: str) -> None:
+    """
+    Função que exibe e salva um gráfico de barras da centralidade de autovetor e de proximidade
+    :param values: lista com os valores que vão estar no eixo y
+    :param labels_bar: lista com rotulos que vão estar no eixo x
+    :param color: string com a cor das barras
+    :param x: nome eixo x
+    :param y: nome eixo y
+    :param name: nome para salvar a figura
+    :return: None
+    """
 
     if len(labels_bar) != len(values):
         raise "Erro de tamanho entre as listas"
@@ -52,8 +62,14 @@ def bar_chart(values: list, labels_bar: list, color: str, x: str, y: str, name: 
     plt.savefig(f"figures/{name}.png")
     plt.show()
 
-
 def pie_chart(percentage: list, labels_pie: list, list_colors: list) -> None:
+    """
+    Função responsável por criar o gráfico de setores para as regiões da Paraíba
+    :param percentage: lista com a porcentagem de cada setor
+    :param labels_pie: lista com os rotulos de cada setor
+    :param list_colors: lista com os colors de cada setor
+    :return: None
+    """
 
     plt.figure(figsize = (7, 7))
     plt.plot(labels_pie, percentage)
@@ -61,9 +77,9 @@ def pie_chart(percentage: list, labels_pie: list, list_colors: list) -> None:
     plt.savefig(f"figures/Gráfico de Setores Regiões Notificadas.png")
     plt.show()
 
-
 def cardinality(grafo: nx.Graph) -> int:
     """
+    Função responsável por retornar a cardinalidade de um grafo
     :param grafo: grafo de análise
     :return: um inteiro correspondendo a cardinalidade/quantidade de vértices do grafo
     """
@@ -71,8 +87,9 @@ def cardinality(grafo: nx.Graph) -> int:
 
 def show_ranking(rank_cities: list, rank_years: list) -> None:
     """
-    :param rank_cities:
-    :param rank_years:
+    Mostra no terminal uma tupla com as cidades e anos mais influentes (autovetor)
+    :param rank_cities: lista com as cidades
+    :param rank_years: lista com os anos
     :return:
     """
     print(f'Top 5 Cidades com mais Casos ao longo dos Anos')
@@ -85,19 +102,16 @@ def show_ranking(rank_cities: list, rank_years: list) -> None:
         print(a)
     print()
 
-    # (Grafico de barras)
-
 # Percorre o dataframe e conta quantas vezes a cidade apareceu
 def weight_of_city(city_or_code: str, database: pd.DataFrame) -> int:
     """
     Função que retorna a quantidade de casos (peso da aresta) de um municipio
     :param city_or_code: codigo da cidade
     :param database: dataframe para pesquisa
-    :return:
+    :return: um inteiro representando o número de casos (cidade<->ano)
     """
     cont = database[MUNICIPIO_ID].value_counts().get(int(city_or_code), 0)
     return cont
-
 
 def config_plot_subgraph(grafo_regiao: nx.Graph, dic_size: dict, color1: str, color2: str):
     """
@@ -116,8 +130,14 @@ def config_plot_subgraph(grafo_regiao: nx.Graph, dic_size: dict, color1: str, co
 
     return [color_list, size_list]
 
-
 def plot_geral_graph(grafo: nx.Graph, list_size_nodes: list, list_color_nodes: list) -> None:
+    """
+    Função responsável por plotar o grafo da Paraíba
+    :param grafo: grafo da Paraíba com todas as cidades e anos
+    :param list_size_nodes: lista com o tamanho de cada um dos vértices
+    :param list_color_nodes: lista com a cor de cada um dos vértices
+    :return: None
+    """
     fig, bloco = plt.subplots(figsize=(60, 60))  # Define o tamanho total da figura
     fig.subplots_adjust(left=0, right=1, top=1, bottom=0)  # Remove as margens
     nx.draw_networkx(grafo, pos=nx.spring_layout(grafo, scale=100), node_size=list_size_nodes,
@@ -125,7 +145,6 @@ def plot_geral_graph(grafo: nx.Graph, list_size_nodes: list, list_color_nodes: l
 
     plt.savefig(FIG_GRAFO_PARAIBA, format='png', dpi=150)
     plt.show()
-
 
 def plot_graph(grafo: nx.Graph, color: list, size: list, regiao: str) -> None:
     """
@@ -141,7 +160,7 @@ def plot_graph(grafo: nx.Graph, color: list, size: list, regiao: str) -> None:
     fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
     nx.draw_networkx(grafo, with_labels=True, pos=nx.bipartite_layout(grafo, YEARS), node_color=color,
                      font_weight='bold', node_size=size, font_size=20)
-    #bloco.set_title(f'Casos de Leishmaniose na Paraíba nos anos 2015-2019 - Região - {regiao}', fontsize=45)
+    #bloco.set_title(f'Casos de Leishmaniose na Paraíba nos anos 2015-2024 - Região - {regiao}', fontsize=45)
     edge_labels = nx.get_edge_attributes(grafo, 'weight')
     nx.draw_networkx_edge_labels(grafo, pos=nx.bipartite_layout(grafo, YEARS), edge_labels=edge_labels, font_size=15,
                                   font_weight='bold', horizontalalignment='right', ax=bloco, bbox={"alpha": 0}, verticalalignment='center')
@@ -150,11 +169,11 @@ def plot_graph(grafo: nx.Graph, color: list, size: list, regiao: str) -> None:
 
 def ranking(list_cities_and_years: list, years=True) -> list:
     """
+    Função responsável por estabelecer o ranking das cinco cidades e cinco anos mais influentes na rede
     :param list_cities_and_years: lista de tuplas com centralidade
     :param years: True se é uma lista de anos ou False se não é
     :return: retorna uma lista com o rank das cinco cidades ou anos
     """
-
     classifieds_cities = list()
     classifieds_years = list()
 
@@ -177,9 +196,7 @@ def absance_of_cases_in_year(dictionary_with_closeness_centrality: dict):
     :param dictionary_with_closeness_centrality: dicionário com closeness centrality de cada subgrafo de região
     :return: retorna o ano em que não houve casos ou False caso tenha ocorrido casos na região
     """
-
     anos_ausentes_sem_casos_notificados = list()
-
     for k, v in dictionary_with_closeness_centrality.items():
         if k in YEARS and v == 0.0:
             anos_ausentes_sem_casos_notificados.append(k)
@@ -204,6 +221,11 @@ def detected_encoding(arquivo):
         raise "Erro de codificação no arquivo JSON"
 
 def treats_state(lista: list) -> list:
+    """
+    Função que trata os nome presentes no arquivo cnv de estado
+    :param lista: uma lista representando os elementos de uma linha do arquivo cnv de estado
+    :return: a lista com a linha de informações referentes ao estado formatada
+    """
     list_formated = list()
     if len(lista) == 3:
         list_formated.append(lista[1])
@@ -220,6 +242,10 @@ def treats_state(lista: list) -> list:
     return list_formated
 
 def treats_city(lista: list) -> list:
+    """
+    :param lista: uma lista representando os elementos de uma linha do arquivo cnv de cidades
+    :return: uma lista com a linha de informações referente a cidade formatada
+    """
     list_formated = list()
     if lista[-1] == lista[1]:
         code = lista.pop()
@@ -237,7 +263,7 @@ def column_check(data_frame: str) -> bool:
     """
     Função responsável por checar se todas as colunas necessárias para a análise estão no dataframe.
     :param data_frame: o dataframe usado para verificação
-    :return: um boolean informando se todas as colunas estão presentes ou não.
+    :return: um booleano informando se todas as colunas estão presentes ou não.
     """
     # low_memory = false
     df = pd.read_csv(data_frame, low_memory=False)
@@ -310,14 +336,11 @@ def convert_cnv_to_json(file: str, file_name_save: str, name_code=True) -> True:
     :param file_name_save: nome do arquivo final json
     :param name_code True se for nome-codigo e False se for codigo-nome
     """
-
     # Diretorios importantes
     BASE_DIR = os.path.abspath("rsc")
     SAVE_TO = os.path.join(BASE_DIR, (file_name_save+".json"))
-
-    # Dicionario que com cidade/estado que será transformado em json
+    # Dicionario em que a cidade/estado que será transformado em json
     save_local = dict()
-
     try:
         with open(file, 'r+', encoding=detected_encoding(file)) as f:
             with open(file, 'r+', encoding=detected_encoding(file)) as f:
@@ -353,19 +376,3 @@ def convert_cnv_to_json(file: str, file_name_save: str, name_code=True) -> True:
         raise print('Arquivos ou pastas base para cidades e munícipios não foram encontrados.')
     except JSONDecodeError:
         raise print('Erro de leitura no arquivo JSON dos arquivos de cidades e estados.')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
