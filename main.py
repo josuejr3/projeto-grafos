@@ -1,16 +1,10 @@
-from matplotlib.pyplot import title
-from networkx.algorithms.centrality import eigenvector_centrality
-from networkx.drawing import bipartite_layout
-
 from utils import (convert_cnv_to_json, create_a_dataframe, year_of_analysis, YEARS, detected_encoding,
                    get_code, ranking, absance_of_cases_in_year, plot_graph, config_plot_subgraph, weight_of_city,
                    show_ranking, cardinality, MESORREGIOES, DIR_CITIES, SERTAO, MATA, BORBOREMA, AGRESTE,
                    MUNICIPIO_ID, COR_AGRESTE, COR_BORBOREMA, COR_MATA, COR_SERTAO, COR_ANO,
                    plot_geral_graph, ESTADO, DIR_UFCODIG, DIR_MUNICIP, DIR_DATA_PROCESSED, CONSTANTE_MULT,
                    CONSTANTE_SOMA, bar_chart, pie_chart)
-import pandas as pd
 import networkx as nx
-import matplotlib.pyplot as plt
 import json
 
 if __name__ == '__main__':
@@ -123,6 +117,8 @@ if __name__ == '__main__':
         "mata": (mata, COR_MATA),
     }
 
+    print(graph_pb)
+
     for node in graph_pb.nodes:
         if node in YEARS:
             color = COR_ANO
@@ -195,3 +191,6 @@ if __name__ == '__main__':
     # Plot grafico de setores
     pie_chart(percentage_regions, ['Agreste', 'Borborema', 'Zona da Mata', 'Sertão'],
               [COR_AGRESTE, COR_BORBOREMA, COR_MATA, COR_SERTAO])
+
+
+    print(sertao)

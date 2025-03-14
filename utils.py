@@ -1,14 +1,9 @@
-from json import JSONDecodeError
 import networkx as nx
 import pandas as pd
 import json
 import os
 import chardet
 import matplotlib.pyplot as plt
-import matplotlib.ticker as mticker
-from matplotlib.pyplot import title
-from networkx.algorithms.centrality import eigenvector_centrality
-from networkx.drawing import bipartite_layout
 
 # Constante com as variáveis representadas em cada coluna
 ANALYSIS_VARIABLES = ['DT_NOTIFIC', 'NU_ANO', 'ID_MUNICIP', 'SG_UF_NOT']
@@ -217,7 +212,7 @@ def detected_encoding(arquivo):
         return resultado["encoding"]
     except FileNotFoundError:
         raise "Arquivo não encontrado"
-    except JSONDecodeError:
+    except json.JSONDecodeError:
         raise "Erro de codificação no arquivo JSON"
 
 def treats_state(lista: list) -> list:
@@ -289,7 +284,7 @@ def get_code(state_city: str, file: str) -> None | str:
         return None
     except FileNotFoundError:
         print('Arquivo não encontrado.')
-    except JSONDecodeError:
+    except json.JSONDecodeError:
         print('Erro de leitura no arquivo JSON.')
 
 def create_a_dataframe(state: str, file_path: str) -> pd.DataFrame:
@@ -374,5 +369,5 @@ def convert_cnv_to_json(file: str, file_name_save: str, name_code=True) -> True:
 
     except FileNotFoundError:
         raise print('Arquivos ou pastas base para cidades e munícipios não foram encontrados.')
-    except JSONDecodeError:
+    except json.JSONDecodeError:
         raise print('Erro de leitura no arquivo JSON dos arquivos de cidades e estados.')
