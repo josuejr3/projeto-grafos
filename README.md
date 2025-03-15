@@ -15,6 +15,10 @@ quadro de Leishmaniose Visceral no estado da Paraíba e nas regiões que à comp
 - Pandas
 - Chardet
 
+> REQUISITOS PARA EXECUÇÃO
+- Instalação das bibliotecas
+- mesoregioes.json
+
 > OBJETIVOS
 - Construir um grafo com todas as cidades da Paraíba que tiveram casos notificados de LV no período de **2015-2024**;
   <p align="center">
