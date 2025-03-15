@@ -27,8 +27,14 @@ quadro de Leishmaniose Visceral no estado da Paraíba e nas regiões que à comp
 - Construir um grafo para cada uma das quatro regiões: Agreste, Borborema, Sertão e Zona da Mata, no intervalo de análise do estudo;
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b99dcdd4-f5db-4580-9688-c5e26e4cfb14" alt="Grafo do Agreste" width=500 height=500/>
+</p>
+<p align="center">
   <img src="https://github.com/user-attachments/assets/36fe5fcb-0db0-4010-820d-66ed6c92a8e5" alt="Grafo da Borborema" width=500 height=500/>
+</p>
+<p align="center">
   <img src="https://github.com/user-attachments/assets/6f342c79-f120-4e64-b937-4a4ca418a8eb" alt="Grafo do Sertão" width=500 heigh=500/>
+</p>
+<p align="center">
   <img src="https://github.com/user-attachments/assets/60210008-90e6-4f1b-9c27-836b560fa547" alt="Grafo da Zona da Mata" width=500 height=500/>
 </p>
 
