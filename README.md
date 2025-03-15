@@ -25,6 +25,10 @@ quadro de Leishmaniose Visceral no estado da Paraíba e nas regiões que à comp
 <img src="https://github.com/user-attachments/assets/0872fec0-81d3-40f8-81c5-730dcfb734a3" alt="Download dataset" width=500 height=500/>
 </p>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b1334c34-073c-4c97-9571-f3de622a3645" alt="Tabwin" width=700 height=200>
+</p>
+
 - A formatação de cada arquivo csv deve ser do tipo (identifição_da_doenca)(útimos dígitos do ano).csv
   - **Ex: LEIV22.csv**
     
