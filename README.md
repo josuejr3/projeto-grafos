@@ -85,5 +85,5 @@ quadro de Leishmaniose Visceral no estado da Paraíba e nas regiões que à comp
     <img src="https://github.com/user-attachments/assets/009ab851-c93e-402b-bbcf-af831bee1d05" alt="Gráfico de Setor - CD" width=500 height=500/>
   </p>
 
-
+---
 
