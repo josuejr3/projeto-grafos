@@ -18,7 +18,19 @@ quadro de Leishmaniose Visceral no estado da Paraíba e nas regiões que à comp
 > REQUISITOS PARA EXECUÇÃO
 - Instalação das bibliotecas
 - mesoregioes.json
+- Dataset em formato csv no diretorio data/processed/
+- Exemplos de dataset: https://datasus.saude.gov.br/transferencia-de-arquivos/
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/0872fec0-81d3-40f8-81c5-730dcfb734a3" alt="Download dataset" width=500 height=500/>
+</p>
+
+- A formatação de cada arquivo csv deve ser do tipo (identifição_da_doenca)(útimos dígitos do ano).csv
+  - **Ex: LEIV22.csv**
+    
+- As tabelas devem estar com codificação utf-8
+
+  
 > OBJETIVOS
 - Construir um grafo com todas as cidades da Paraíba que tiveram casos notificados de LV no período de **2015-2024**;
   <p align="center">
