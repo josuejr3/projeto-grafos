@@ -1,4 +1,4 @@
-### APLICAÇÃO DE TEORIA DOS GRAFOS PARA COMPREENSÃO EPIDEMIOLÓGICA 📊🧬
+### APLICAÇÃO DE TEORIA DOS GRAFOS PARA COMPREENSÃO EPIDEMIOLÓGICA 📊🧬🔵🟢🟡
 
 ### Avalição retrospectiva dos casos de Leishmaniose Visceral na Paraíba no período de 2015 a 2024
 ---
