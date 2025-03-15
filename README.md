@@ -21,6 +21,19 @@ quadro de Leishmaniose Visceral no estado da Paraíba e nas regiões que à comp
 - Dataset em formato csv no diretorio data/processed/
 - Exemplos de dataset: https://datasus.saude.gov.br/transferencia-de-arquivos/
 
+> O CÓDIGO PRINCIPAL DEVE CRIAR OS ARQUIVOS ABAIXO SE NÃO JÁ NÃO EXISTIREM
+- cities.json (rsc)
+- states.json (rsc)
+- Agreste.png (figures)
+- Borborema.png (figures)
+- Gráfico de Barras CA.png (figures)
+- Gráfico de Barras CP - borborema.png (figures)
+- Gráfico de Setores Regiões Notificadas.png (figures)
+- Paraíba.png (figures)
+- Sertão.png (figures)
+- Zona da Mata.png (figures)
+
+> EXEMPLOS DE ACESSO AO DATASET PELO DATASUS
 <p align="center">
 <img src="https://github.com/user-attachments/assets/0872fec0-81d3-40f8-81c5-730dcfb734a3" alt="Download dataset" width=500 height=500/>
 </p>
